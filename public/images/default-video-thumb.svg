@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="100%" height="100%" fill="#0f1724" />
+  <rect x="96" y="96" width="1088" height="528" rx="20" fill="#0b1220" stroke="#111827" stroke-width="1" />
+  <g fill="#9ca3af">
+    <polygon points="520,360 520,280 700,360 520,440" fill="#9ca3af" opacity="0.95" />
+  </g>
+  <text x="640" y="660" font-family="Inter, Arial, sans-serif" font-size="28" fill="#94a3b8" text-anchor="middle">Industry Insights</text>
+</svg>

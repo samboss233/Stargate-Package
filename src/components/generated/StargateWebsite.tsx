@@ -85,41 +85,41 @@ const PARTNERS = [{
   logo: 'https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg'
 }];
 const VIDEO_LEADERS = [{
-  name: 'Satya Nadella',
-  company: 'Microsoft',
-  title: "The Age of AI",
-  thumbnail: 'https://img.youtube.com/vi/7RjA8UqLqJM/maxresdefault.jpg',
-  videoUrl: 'https://www.youtube.com/watch?v=7RjA8UqLqJM'
+  name: 'Sam Altman',
+  company: 'OpenAI',
+  title: 'Interview on AI & Policy',
+  thumbnail: '/images/default-video-thumb.svg',
+  videoUrl: 'https://www.youtube.com/results?search_query=sam+altman+interview'
 }, {
   name: 'Sundar Pichai',
   company: 'Google',
-  title: 'Google I/O 2024 Keynote',
-  thumbnail: 'https://img.youtube.com/vi/XEzRZ35urlk/maxresdefault.jpg',
-  videoUrl: 'https://www.youtube.com/watch?v=XEzRZ35urlk'
+  title: 'Conversation on AI & Products',
+  thumbnail: '/images/default-video-thumb.svg',
+  videoUrl: 'https://www.youtube.com/results?search_query=sundar+pichai+interview'
 }, {
   name: 'Jensen Huang',
   company: 'NVIDIA',
-  title: 'CES 2025 Keynote',
-  thumbnail: 'https://img.youtube.com/vi/hWeNaP27qyY/maxresdefault.jpg',
-  videoUrl: 'https://www.youtube.com/watch?v=hWeNaP27qyY'
+  title: 'GTC / Tech Leadership Interview',
+  thumbnail: '/images/default-video-thumb.svg',
+  videoUrl: 'https://www.youtube.com/results?search_query=jensen+huang+interview'
 }, {
-  name: 'Andy Jassy',
-  company: 'AWS',
-  title: 'AWS re:Invent 2024 Keynote',
-  thumbnail: 'https://img.youtube.com/vi/UTRBVPvzt9w/maxresdefault.jpg',
-  videoUrl: 'https://www.youtube.com/watch?v=UTRBVPvzt9w'
+  name: 'Satya Nadella',
+  company: 'Microsoft',
+  title: 'On Cloud & AI (Interview)',
+  thumbnail: '/images/default-video-thumb.svg',
+  videoUrl: 'https://www.youtube.com/results?search_query=satya+nadella+interview'
 }, {
-  name: 'Sam Altman',
-  company: 'OpenAI',
-  title: 'The Future of AI',
-  thumbnail: 'https://img.youtube.com/vi/O5qCrJZ8NBE/maxresdefault.jpg',
-  videoUrl: 'https://www.youtube.com/watch?v=O5qCrJZ8NBE'
+  name: 'Tim Cook',
+  company: 'Apple',
+  title: 'Interview on Product & Privacy',
+  thumbnail: '/images/default-video-thumb.svg',
+  videoUrl: 'https://www.youtube.com/results?search_query=tim+cook+interview'
 }, {
-  name: 'Mark Zuckerberg',
-  company: 'Meta',
-  title: 'Meta AI & Llama 3',
-  thumbnail: 'https://img.youtube.com/vi/bc6uFV9CJGg/maxresdefault.jpg',
-  videoUrl: 'https://www.youtube.com/watch?v=bc6uFV9CJGg'
+  name: 'Demis Hassabis',
+  company: 'DeepMind',
+  title: 'AI Research & Society (Interview)',
+  thumbnail: '/images/default-video-thumb.svg',
+  videoUrl: 'https://www.youtube.com/results?search_query=demis+hassabis+interview'
 }];
 
 // --- Subcomponents ---
@@ -222,7 +222,18 @@ const VideoCard = ({
       <div className="relative overflow-hidden rounded-2xl bg-black">
         {/* 16:9 Thumbnail */}
         <div className="relative w-full aspect-video overflow-hidden">
-          <img src={thumbnail} alt={`${name} - ${title}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <img
+            src={thumbnail || '/images/default-video-thumb.svg'}
+            alt={`${name} - ${title}`}
+            loading="lazy"
+            onError={(e) => {
+              const img = e.currentTarget as HTMLImageElement;
+              if (img && img.src.indexOf('/images/default-video-thumb.svg') === -1) {
+                img.src = '/images/default-video-thumb.svg';
+              }
+            }}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
           {/* Dark overlay on hover */}
           <div className="absolute inset-0 bg-black/20 transition-opacity duration-300 group-hover:bg-black/40" />
           
