@@ -325,9 +325,9 @@ const CircularProgressCounter = ({
     }
   }, [isInView, percentage, delay]);
   return <div ref={ref} className="flex flex-col items-center justify-start">
-      {/* Circular Progress Ring - 200px diameter */}
-      <div className="relative w-[200px] h-[200px] flex items-center justify-center mb-4">
-        <svg className="absolute transform -rotate-90 w-full h-full">
+      {/* Circular Progress Ring - responsive sizes */}
+      <div className="relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] md:w-[200px] md:h-[200px] flex items-center justify-center mb-4">
+        <svg viewBox="0 0 200 200" className="absolute transform -rotate-90 w-full h-full">
           {/* Background Circle */}
           <circle cx="100" cy="100" r={radius} stroke="#e5e7eb" strokeWidth="25" fill="none" />
           {/* Progress Circle with gradient */}
@@ -336,7 +336,7 @@ const CircularProgressCounter = ({
         
         {/* Center Content - Percentage Number ONLY */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-[48pt] font-bold leading-none tabular-nums" style={{
+          <div className="text-[28px] sm:text-[36px] md:text-[48pt] font-bold leading-none tabular-nums" style={{
           fontFamily: 'Arial, Helvetica, sans-serif',
           color: '#000000'
         }}>
@@ -346,11 +346,11 @@ const CircularProgressCounter = ({
       </div>
       
       {/* Label Text - Single line, clean, below the circle */}
-      <div className="text-center px-2 transition-opacity duration-500" style={{
+      <div className="text-center px-3 transition-opacity duration-500" style={{
       opacity: textVisible ? 1 : 0,
       maxWidth: '280px'
     }}>
-        <p className="text-xl leading-relaxed text-black/60">
+        <p className="text-base md:text-xl leading-relaxed text-black/60">
           {label}
         </p>
       </div>
@@ -650,11 +650,19 @@ export const StargateWebsite = () => {
             </p>
           </motion.div>
 
-          <div className="flex flex-row items-start justify-center gap-[50px] py-12 bg-white">
-            <CircularProgressCounter percentage={50} label="Of organizations will adopt industry-specific cloud platforms by 2029 to accelerate business initiatives" color="#007BFF" delay={0} />
-            <CircularProgressCounter percentage={40} label="Of leading companies will use hybrid computing architectures in mission-critical workflows by 2028" color="#8B5CF6" delay={100} />
-            <CircularProgressCounter percentage={50} label="Of cloud compute resources will support AI workloads by 2029" color="#14B8A6" delay={200} />
-            <CircularProgressCounter percentage={27} label="Reduction in cost per user when migrating from on-premises to AWS" color="#F59E0B" delay={300} />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-12 bg-white px-4">
+            <div className="p-4 flex items-center justify-center">
+              <CircularProgressCounter percentage={50} label="Of organizations will adopt industry-specific cloud platforms by 2029 to accelerate business initiatives" color="#007BFF" delay={0} />
+            </div>
+            <div className="p-4 flex items-center justify-center">
+              <CircularProgressCounter percentage={40} label="Of leading companies will use hybrid computing architectures in mission-critical workflows by 2028" color="#8B5CF6" delay={100} />
+            </div>
+            <div className="p-4 flex items-center justify-center">
+              <CircularProgressCounter percentage={50} label="Of cloud compute resources will support AI workloads by 2029" color="#14B8A6" delay={200} />
+            </div>
+            <div className="p-4 flex items-center justify-center">
+              <CircularProgressCounter percentage={27} label="Reduction in cost per user when migrating from on-premises to AWS" color="#F59E0B" delay={300} />
+            </div>
           </div>
         </div>
       </section>
