@@ -30,7 +30,7 @@ const NAV_ITEMS: NavItem[] = [{
   href: '/contact'
 }];
 const SERVICES = [{
-  title: 'ERP Systems',
+  title: 'Enterprise Resource Planning Systems',
   description: 'Specialized implementation of financial management systems for large-scale enterprise control.',
   imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800&h=600'
 }, {
@@ -43,7 +43,7 @@ const SERVICES = [{
   imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800&h=600'
 }, {
   title: 'Workflow Automation',
-  description: 'Streamlining business processes through intelligent automation using message queues (RabbitMQ, Apache Kafka), RESTful and GraphQL Application Programming Interfaces (APIs), robotic process automation (RPA), and orchestration platforms to eliminate manual tasks and accelerate operational efficiency.',
+  description: 'Intelligent automation that eliminates manual tasks and accelerates business efficiency using message queues, Application Programming Interfaces (APIs), and orchestration platforms.',
   imageUrl: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&q=80&w=800&h=600'
 }];
 const CAPABILITIES = [{
