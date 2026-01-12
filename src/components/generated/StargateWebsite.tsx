@@ -393,7 +393,7 @@ export const StargateWebsite = () => {
     }} />
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-2xl py-3 border-b border-black/10' : 'bg-transparent py-5'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-2xl py-3 border-b border-black/10 shadow-sm' : 'bg-white/60 backdrop-blur-sm py-5'}`}>
         <div className="max-w-[980px] mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center">
