@@ -168,3 +168,16 @@ img.broken-image-fallback {
     opacity: 1;
   }
 }
+
+/* Prevent mid-word breaks only on small screens for certain animated headings */
+.word-no-break-mobile {
+  /* default: allow normal wrapping on larger screens */
+  white-space: normal;
+}
+
+@media (max-width: 640px) {
+  .word-no-break-mobile {
+    /* on mobile, prevent words from breaking mid-word */
+    white-space: nowrap;
+  }
+}

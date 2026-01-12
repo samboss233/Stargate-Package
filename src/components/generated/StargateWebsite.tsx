@@ -461,22 +461,24 @@ export const StargateWebsite = () => {
           scale: heroScale
         }} className="relative z-10 max-w-[980px] mx-auto px-6 text-center">
             <div className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white/100 leading-[1.05] mb-6">
-              {"Harnessing the power of technology.".split("").map((char, index) => <motion.span key={index} initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.3,
-              delay: 0.2 + index * 0.03,
-              ease: [0.33, 1, 0.68, 1]
-            }} style={{
-              display: 'inline-block',
-              whiteSpace: char === ' ' ? 'pre' : 'normal'
-            }}>
-                  {char}
-                </motion.span>)}
+              {(() => {
+                const text = "Harnessing the power of technology.";
+                const tokens = text.match(/\S+|\s/g) || [];
+                return tokens.map((token, tIndex) => {
+                  if (/\s/.test(token)) {
+                    return <motion.span key={tIndex} className="whitespace-pre">{token}</motion.span>;
+                  }
+                  return (
+                    <motion.span key={tIndex} className="word-no-break-mobile inline-block mr-[0.15em]">
+                      {token.split("").map((char, cIndex) => (
+                        <motion.span key={`${tIndex}-${cIndex}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.2 + (tIndex + cIndex) * 0.03, ease: [0.33, 1, 0.68, 1] }} className="inline-block">
+                          {char}
+                        </motion.span>
+                      ))}
+                    </motion.span>
+                  );
+                });
+              })()}
             </div>
             
             <motion.p
