@@ -22,7 +22,7 @@ export const StargateLogo: React.FC<StargateLogoProps> = ({
 }) => {
   // Using the logo image path - place the stargate-logo.png file in the public folder
   // The image should be a white logo on transparent/black background
-  return <img src="/logow.png" alt="Stargate" width={width} height={height} className={className} onError={e => {
+  return <img src="/logob.png" alt="Stargate" width={width} height={height} className={className} onError={e => {
     // Fallback text if image is not found
     const target = e.target as HTMLImageElement;
     target.style.display = 'none';
